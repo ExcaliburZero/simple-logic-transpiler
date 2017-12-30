@@ -1,0 +1,69 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 8ce5eb8a5ff949e4723f76adac3ba90bbe62803996e912622a8bec115227ceb5
+
+name:           simple-logic-transpiler
+version:        0.1.0.0
+synopsis:       Short description of your package
+description:    Please see the README on Github at <https://github.com/ExcaliburZero/simple-logic-transpiler#readme>
+homepage:       https://github.com/ExcaliburZero/simple-logic-transpiler#readme
+bug-reports:    https://github.com/ExcaliburZero/simple-logic-transpiler/issues
+author:         Christopher Wells
+maintainer:     cwellsny@nycap.rr.com
+copyright:      2016 Christopher Wells
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/ExcaliburZero/simple-logic-transpiler
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , parsec
+  exposed-modules:
+      Transpiler.AST
+    , Transpiler.Parsers
+    , Transpiler.Translation
+  other-modules:
+      Paths_simple_logic_transpiler
+  default-language: Haskell2010
+
+executable simple-logic-transpiler-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , simple-logic-transpiler
+    , parsec
+  other-modules:
+      Paths_simple_logic_transpiler
+  default-language: Haskell2010
+
+test-suite simple-logic-transpiler-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , simple-logic-transpiler
+    , hspec
+    , parsec
+  other-modules:
+      Paths_simple_logic_transpiler
+  default-language: Haskell2010
